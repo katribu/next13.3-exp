@@ -35,11 +35,11 @@ export default async function page({params: {searchTerm}} : Props) {
 
 
     const content = (
-        <main className="bg-slate-500 mx-auto max-w-lg py-1 min-h-screen text-white">
+        <main className="bg-blue-600 mx-auto max-w-lg py-1 min-h-screen text-white">
             {result ? 
             Object.values(result).map(res => {
               return  (
-            <article className="p-5">
+            <article className="p-5" key={res.pageid}>
               <h2 className="font-bold hover:underline"><Link href={`https://en.wikipedia.org/?curid=${res.pageid}`} target="_blank">{res.title}</Link></h2>
               <p>{res.extract}</p>
               </article>

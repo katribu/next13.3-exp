@@ -20,10 +20,10 @@ export default function Search() {
             onChange={e => setSearch(e.target.value)}
             value={search}
             className="h-10 w-70 text-xl pl-3 rounded-md"
-            placeholder="Search..."
+            placeholder="Wiki Search..."
             />
-            <button className="w-24 bg-stone-500 ml-2 rounded-md text-xl hover:bg-stone-900 text-white">
-               ↜ Goo ↝
+            <button className="w-10 bg-blue-500 ml-2 rounded-md text-xl hover:bg-stone-900 text-white">
+            🔍
             </button>
         </form>
     )
