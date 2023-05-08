@@ -1,7 +1,6 @@
-import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Home",
@@ -10,8 +9,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className={inter.className}>
-      <h1 className="text-3xl text-stone-50 text-center mt-5"> Welcome to Wiki Search! </h1>
+    <main className="text-stone-50 text-center">
+      <h1 className="text-3xl mt-5"> Welcome to Wiki Search! </h1>
+      <p>Want to play a game instead?</p>
+      <ul>
+        <Link href="memory"><li>Memory</li></Link>
+      </ul>
+
     </main>
   )
 }
