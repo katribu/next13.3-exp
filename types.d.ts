@@ -14,3 +14,18 @@ type SearchResult = {
         pages?: Result[],
     },
 }
+
+type Avatars = {
+    alsoAppearsIn: [];
+    availability: string;
+    images: {
+        icon: string;
+        portrait: string;   
+    },
+    name: string;
+    order: number;
+    series: {
+        icon: string;
+        name: string;
+    }
+    }[];
