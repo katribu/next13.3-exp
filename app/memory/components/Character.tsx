@@ -35,8 +35,8 @@ export default function Character({characters}:Props) {
     const shuffledArray = _.shuffle(finalArray)
     const content = shuffledArray.map((char,i) => {
         return (
-        <div key={i} className="w-20 h-20 border-solid border-2 border-slate-900">
-            <img src={char.images.portrait} rel="preload"/>
+        <div key={i} className="w-21 h-21 border-solid border-2 border-slate-900">
+            <img src={char.images.portrait} rel="preload" className="max-w-21 max-h-21"/>
         </div>
         )
     })
