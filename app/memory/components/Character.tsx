@@ -1,3 +1,6 @@
+'use-client'
+import * as _ from "lodash"
+
 interface Props {
     characters: Avatars;
 }
@@ -29,10 +32,11 @@ export default function Character({characters}:Props) {
     }
 
     const finalArray = duplicate(results,2)
-    const content = finalArray.map(char => {
+    const shuffledArray = _.shuffle(finalArray)
+    const content = shuffledArray.map((char,i) => {
         return (
-        <div key={char.order} className="w-20 h-20 border-solid border-2 border-slate-900">
-            <img src={char.images.portrait} />
+        <div key={i} className="w-20 h-20 border-solid border-2 border-slate-900">
+            <img src={char.images.portrait} rel="preload"/>
         </div>
         )
     })
