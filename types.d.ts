@@ -15,7 +15,7 @@ type SearchResult = {
     },
 }
 
-type Avatars = {
+type Avatar = {
     alsoAppearsIn: [];
     availability: string;
     images: {
@@ -28,4 +28,4 @@ type Avatars = {
         icon: string;
         name: string;
     }
-    }[];
+}
