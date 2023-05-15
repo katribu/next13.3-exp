@@ -3,11 +3,11 @@ import * as _ from "lodash"
 import {useState, useEffect} from 'react'
 
 interface Props {
-    character: Avatar[];
+    characters: Avatar[];
 }
 
-export default function Character({character}:Props) {
-    const [isChosen, setIsChosen] = useState<boolean>(false)
+export default function Character({characters}:Props) {
+    const [isChosen, setIsChosen] = useState<number| null>(null)
     const [characterArray, setCharacterArray] = useState<Avatar[]>([])
 
     const chooseRandom = (arr: Avatar[]) => {
@@ -23,21 +23,18 @@ export default function Character({character}:Props) {
           return res;
     }
 
-    const handleClick = (id:number,order:number) => {
+    const handleClick = (id:number) => {
         console.log(id)
-        if(id===order){
-            setIsChosen(prevState => !prevState)
-        }
-        return;
+        setIsChosen(id)
     }
-    const results = chooseRandom(character)
+    const results = chooseRandom(characters)
 
     function duplicate(array:Avatar[], duplicator:number){
         var buildArray = [];
         for(let i=0; i<array.length; i++){
-                for(let j=0; j<duplicator; j++){
-                        buildArray.push(array[i]);
-                }
+            for(let j=0; j<duplicator; j++){
+                buildArray.push(array[i]);
+            }
         }
         return buildArray;
     }
@@ -53,15 +50,18 @@ export default function Character({character}:Props) {
     },[])
 
     const content = characterArray.map((char,i) => {
+
         return (
         <div 
         key={i} 
         className="w-21 h-21 border-solid border-2 border-slate-900"
-        onClick={()=>handleClick(char.order,char.order)}
+        onClick={()=>handleClick(char.order)}
         >
-            <img src={char.images.portrait} rel="preload" alt="super smash bros. character"
-            className="h-21 w-21"/>
         
+            <img src={char.images.portrait} rel="preload" alt="super smash bros. character"
+            className="w-full h-full object-scale-down"/>
+            
+                
         </div>
         )
     })
@@ -70,5 +70,5 @@ export default function Character({character}:Props) {
         <>
         {content}
         </>
-        )
+    )
 }

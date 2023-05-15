@@ -17,7 +17,7 @@ const Memory = async () => {
             <p>Match every card with it's pair in the least amount of tries possible</p>
 
             <div className="grid grid-cols-5 w-3/5 place-content-center my-5 mx-auto gap-x-0">
-                <Character character={results} />
+                <Character characters={results} />
             </div>
 
         </div>
