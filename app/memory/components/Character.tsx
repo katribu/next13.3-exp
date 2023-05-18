@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function Character({characters}:Props) {
-    const [isChosen, setIsChosen] = useState<number| null>(null)
+    // const [isChosen, setIsChosen] = useState<boolean>(false)
     const [characterArray, setCharacterArray] = useState<Avatar[]>([])
 
     const chooseRandom = (arr: Avatar[]) => {
@@ -25,7 +25,7 @@ export default function Character({characters}:Props) {
 
     const handleClick = (id:number) => {
         console.log(id)
-        setIsChosen(id)
+        
     }
     const results = chooseRandom(characters)
 
@@ -54,12 +54,13 @@ export default function Character({characters}:Props) {
         return (
         <div 
         key={i} 
-        className="w-21 h-21 border-solid border-2 border-slate-900"
+        className="bg-blue-950"
         onClick={()=>handleClick(char.order)}
-        >
-        
-            <img src={char.images.portrait} rel="preload" alt="super smash bros. character"
-            className="w-full h-full object-scale-down"/>
+        >   
+            <div>
+                <img src={char.images.portrait} rel="preload" alt="super smash bros. character"
+                className="w-full h-full object-scale-down"/>
+            </div>
             
                 
         </div>

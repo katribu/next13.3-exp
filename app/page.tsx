@@ -12,8 +12,9 @@ export default function Home() {
     <main className="text-stone-50 text-center">
       <h1 className="text-3xl mt-5"> Welcome to Wiki Search! </h1>
       <p>Want to play a game instead?</p>
-      <ul>
-        <Link href="memory"><li>Memory</li></Link>
+      <ul className="font-bold w-64 mx-auto">
+        <Link href="memory"><li className="hover:underline">Memory</li></Link>
+        <Link href="tictactoe"><li className="hover:underline">Tic-Tac-Toe</li></Link>
       </ul>
 
     </main>
