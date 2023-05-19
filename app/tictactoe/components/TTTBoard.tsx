@@ -1,6 +1,6 @@
 'use client'
 
-import { useState,useEffect, MouseEvent } from 'react'
+import { useState,useEffect } from 'react'
 
 export default function TTTBoard() {
 
@@ -31,7 +31,7 @@ export default function TTTBoard() {
         checkWinner()
     },[gameBoard])
 
-
+    
 
     return (
         <div className="grid grid-cols-3 bg-slate-900 w-1/5 mx-auto gap-3 text-white place-content-center cursor-pointer font-bold"
