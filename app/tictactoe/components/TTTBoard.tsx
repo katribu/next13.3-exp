@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 export default function TTTBoard() {
 
-    const [turn, setTurn] = useState<string>('')
     const [isPlayerOne, setIsPlayerOne] = useState<boolean>(true)
 
     const handler = (e:any) => {
@@ -12,11 +11,11 @@ export default function TTTBoard() {
             return;
         }
         else if (isPlayerOne){
-            e.target.style.text = 'O'
+            e.target.innerHTML = 'O'
             setIsPlayerOne(prevState => !prevState)
         }
         else if (!isPlayerOne){
-            e.target.style.text = 'X'
+            e.target.innerHTML = 'X'
             setIsPlayerOne(prevState => !prevState)
         }
     }
@@ -28,12 +27,12 @@ export default function TTTBoard() {
             <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
             <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
             <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">O</div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">X</div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">X</div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">O</div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">O</div>
-            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center">X</div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
+            <div className="bg-blue-400 w-15 h-10 flex justify-center items-center"></div>
 
         </div>
     )
