@@ -8,8 +8,9 @@ export const metadata: Metadata = {
 
 const TicTacToe = () => {
  return (
-    <div>
-        <h1 className="text-3xl text-center text-white mt-5">Tic Tac Toe </h1>
+    <div className="text-center text-white">
+        <h1 className="text-3xl mt-5">Tic Tac Toe </h1>
+        <p className="text-md">Player 1: <strong>O</strong> Player 2: <strong>X</strong></p>
         <div className="mt-10">
             <TTTBoard />
         </div>
