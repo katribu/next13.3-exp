@@ -62,6 +62,9 @@ export default function TTTBoard() {
             if (mappedChildren[a] && mappedChildren[a] === mappedChildren[b] && mappedChildren[a] === mappedChildren[c]) {
                 setWinner(true);
                 setWhoWon(mappedChildren[a]);
+                setTimeout(()=>{
+                    setWinner(false)
+                    setGameBoard(data)},2000)
             }
         }
         return null;
