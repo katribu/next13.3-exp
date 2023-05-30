@@ -1,6 +1,7 @@
 'use client'
 
 import { useState,useEffect } from 'react'
+import Confetti from 'react-confetti'
 
 enum Player {
     One = 'O',
@@ -63,8 +64,8 @@ export default function TTTBoard() {
                 setWinner(true);
                 setWhoWon(mappedChildren[a]);
                 setTimeout(()=>{
-                    setWinner(false)
-                    setGameBoard(data)},2000)
+                setWinner(false)
+                setGameBoard(data)},4000);
             }
         }
         return null;
@@ -86,7 +87,11 @@ export default function TTTBoard() {
         <div className="grid grid-cols-3 bg-slate-900 w-1/5 mx-auto gap-3 text-white place-content-center cursor-pointer font-bold">
           {content}
         </div>
-        { winner && <h2> Congrats to Player {whoWon === 'O' ? "One" : "Two"}! You Won!!</h2>}
+        { winner && 
+        <div>
+         <h2> Congrats to Player {whoWon === 'O' ? "One" : "Two"}! You Won!!</h2>
+         <Confetti width={window.innerWidth} height={window.innerHeight} />
+         </div>}
         </>
     )
 }
