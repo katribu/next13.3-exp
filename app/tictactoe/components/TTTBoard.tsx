@@ -1,6 +1,6 @@
 'use client'
 
-import { useState,useEffect } from 'react'
+import { useState,useEffect, } from 'react'
 import Confetti from 'react-confetti'
 
 enum Player {
@@ -26,6 +26,7 @@ export default function TTTBoard() {
     const [gameBoard, setGameBoard] = useState<(JSX.Element | undefined)[]>(data)
     const [whoWon, setWhoWon] = useState<string>('')
     const [winner, setWinner] = useState<boolean>(false)
+    const [noWinner, setNoWinner] = useState<string>('')
 
     const handleClick = (index:number) => {
         const updatedBoard = gameBoard.map((div,i)=> {
@@ -63,9 +64,20 @@ export default function TTTBoard() {
             if (mappedChildren[a] && mappedChildren[a] === mappedChildren[b] && mappedChildren[a] === mappedChildren[c]) {
                 setWinner(true);
                 setWhoWon(mappedChildren[a]);
+                setIsPlayerOne(true)
                 setTimeout(()=>{
-                setWinner(false)
-                setGameBoard(data)},4000);
+                    setWinner(false)
+                    setGameBoard(data)
+                },4000);
+            }
+            if(!mappedChildren.includes(undefined)){
+                setNoWinner('Nobody won, try again 😥')
+                setTimeout(()=>{
+                    setWinner(false)
+                    setGameBoard(data)
+                    setNoWinner('')
+                    setIsPlayerOne(true)
+                },4000);
             }
         }
         return null;
@@ -87,11 +99,12 @@ export default function TTTBoard() {
         <div className="grid grid-cols-3 bg-slate-900 w-1/5 mx-auto gap-3 text-white place-content-center cursor-pointer font-bold">
           {content}
         </div>
-        { winner && 
+        { winner ?  
         <div>
          <h2> Congrats to Player {whoWon === 'O' ? "One" : "Two"}! You Won!!</h2>
          <Confetti width={window.innerWidth} height={window.innerHeight} />
-         </div>}
+         </div> :
+         <h2 className="text-lg font-bold"> {noWinner} </h2>}
         </>
     )
 }
