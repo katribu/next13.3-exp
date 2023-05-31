@@ -77,7 +77,7 @@ export default function TTTBoard() {
                     setGameBoard(data)
                     setNoWinner('')
                     setIsPlayerOne(true)
-                },4000);
+                },2000);
             }
         }
         return null;
