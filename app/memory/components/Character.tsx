@@ -1,5 +1,6 @@
 "use client"
 import * as _ from "lodash"
+import Image from "next/image";
 import {useState, useEffect} from 'react'
 
 interface Props {
@@ -58,8 +59,7 @@ export default function Character({characters}:Props) {
         onClick={()=>handleClick(char.order)}
         >   
             <div>
-                <img src={char.images.portrait} rel="preload" alt="super smash bros. character"
-                className="w-full h-full object-scale-down"/>
+                <Image src={char.images.portrait} width={100} height={100} alt="Super smash bros. character"/>
             </div>
             
                 
