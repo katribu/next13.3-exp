@@ -27,5 +27,6 @@ type Avatar = {
     series: {
         icon: string;
         name: string;
-    }
+    },
+    isChosen: boolean
 }

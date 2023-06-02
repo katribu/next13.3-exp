@@ -2,13 +2,14 @@
 import * as _ from "lodash"
 import Image from "next/image";
 import {useState, useEffect} from 'react'
+import { emptyChars } from "@/lib/emptyChars";
 
 interface Props {
     characters: Avatar[];
 }
 
 export default function Character({characters}:Props) {
-    // const [isChosen, setIsChosen] = useState<boolean>(false)
+    const [isChosen, setIsChosen] = useState<boolean>(false)
     const [characterArray, setCharacterArray] = useState<Avatar[]>([])
 
     const chooseRandom = (arr: Avatar[]) => {
@@ -24,9 +25,12 @@ export default function Character({characters}:Props) {
           return res;
     }
 
-    const handleClick = (id:number) => {
+    const handleClick = (id:number, index: number) => {
         console.log(id)
-        
+        console.log(index)
+        const updatedArray = [...characterArray];
+        updatedArray[index].isChosen = !updatedArray[index].isChosen;
+        setCharacterArray(updatedArray);
     }
     const results = chooseRandom(characters)
 
@@ -51,15 +55,18 @@ export default function Character({characters}:Props) {
     },[])
 
     const content = characterArray.map((char,i) => {
-
         return (
         <div 
         key={i} 
-        className="bg-blue-950"
-        onClick={()=>handleClick(char.order)}
+        className="bg-blue-950 cursor-pointer"
+        onClick={()=>handleClick(char.order,i)}
         >   
             <div>
-                <Image src={char.images.portrait} width={100} height={100} alt="Super smash bros. character"/>
+                {char.isChosen?
+                <Image src={char.images.portrait} width={100} height={100} alt="Super smash bros. character"/> :
+                <div className="h-21 w-21 bg-slate-500 flex items-center justify-center">
+                    Memory
+                </div>}
             </div>
             
                 
@@ -71,5 +78,6 @@ export default function Character({characters}:Props) {
         <>
         {content}
         </>
-    )
+    )    
+
 }
