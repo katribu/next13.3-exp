@@ -2,14 +2,12 @@
 import * as _ from "lodash"
 import Image from "next/image";
 import {useState, useEffect} from 'react'
-import { emptyChars } from "@/lib/emptyChars";
 
 interface Props {
     characters: Avatar[];
 }
 
 export default function Character({characters}:Props) {
-    const [isChosen, setIsChosen] = useState<boolean>(false)
     const [characterArray, setCharacterArray] = useState<Avatar[]>([])
 
     const chooseRandom = (arr: Avatar[]) => {
@@ -64,8 +62,8 @@ export default function Character({characters}:Props) {
             <div>
                 {char.isChosen?
                 <Image src={char.images.portrait} width={100} height={100} alt="Super smash bros. character"/> :
-                <div className="h-21 w-21 bg-slate-500 flex items-center justify-center">
-                    Memory
+                <div className="h-21 w-21 pb-10 bg-blue-500 flex items-center justify-center">
+                    Memory Super Smash Bros.
                 </div>}
             </div>
             
