@@ -29,6 +29,7 @@ export default function Character({characters}:Props) {
         const updatedArray = [...characterArray];
         updatedArray[index].isChosen = !updatedArray[index].isChosen;
         setCharacterArray(updatedArray);
+        console.log(updatedArray)
     }
     const results = chooseRandom(characters)
 
@@ -62,7 +63,7 @@ export default function Character({characters}:Props) {
             <div>
                 {char.isChosen?
                 <Image src={char.images.portrait} width={100} height={100} alt="Super smash bros. character"/> :
-                <div className="h-21 w-21 pb-10 bg-blue-500 flex items-center justify-center">
+                <div className="h-full w-21 bg-blue-500 flex items-center justify-center">
                     Memory Super Smash Bros.
                 </div>}
             </div>
