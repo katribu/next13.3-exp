@@ -1,3 +1,4 @@
+#Random side project to get the hang of NextJS 13. Work in Progress....
 <p>Followed YT tutorial on NextJS 13 by Dave Gray to make this wikipedia search tool. </p>
 <p>Also will be adding games to play. First game to come is memory matching game. </p>
 <p> Using the NextJS new app directory. </p>
